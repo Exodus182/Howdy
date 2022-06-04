@@ -11,7 +11,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                    <h3 class="text-center">Selamat <span id="greeting"></span>, Silahkan Login/Pilih Register</h3>
+                    <h3 class="text-center">Selamat <span id="greeting"></span>, Silahkan Login/Register</h3>
                     </div>
                 </div>
             
