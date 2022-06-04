@@ -2,6 +2,21 @@
 
 @section('content')
 <div class="container">
+
+
+                <div class="row text-center mb-3">
+                    <div class="col">
+                    <img src="{{ url('images/howdy-logo.png') }}" alt="logo" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                    <h3 class="text-center">Selamat <span id="greeting"></span>, Silahkan Login/Pilih Register</h3>
+                    </div>
+                </div>
+            
+
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -70,4 +85,21 @@
         </div>
     </div>
 </div>
+
+<script>
+            const d = new Date();
+            let hour = d.getHours();
+            console.log(hour);
+            if (hour > 5 && hour < 10) {
+            timeGreet = "Pagi";
+            } else if (hour >= 10 && hour < 15) {
+            timeGreet = "Siang";
+            } else if (hour >= 15 && hour < 19) {
+            timeGreet = "Sore";
+            } else {
+            timeGreet = "Malam";
+            }
+
+            document.getElementById("greeting").innerHTML = timeGreet;
+        </script>
 @endsection
