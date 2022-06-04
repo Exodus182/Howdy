@@ -46,7 +46,7 @@
                                     </td>
                                     <td>Update Items</td>
                                     <td>
-                                        <a href="{{ url('update-items') }}">
+                                        <a href="{{ url('update-list') }}">
                                             <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
                                         </a>
                                     </td>

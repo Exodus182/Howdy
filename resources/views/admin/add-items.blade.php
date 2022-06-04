@@ -16,7 +16,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">          
-                        <h4><i class="fa fa-pencil"></i> Admin Menu > Add Items</h4>
+                        <h4><i class="fa fa-plus"></i> Admin Menu > Add Items</h4>
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <ul>
@@ -28,26 +28,44 @@
                         @endif
                         <form action="{{ url('add-items') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <input type="text" name="item_name" class="form-control" placeholder="Enter Item Name">
+                            <div class="row mb-1">
+                                <label for="name" class="col-md-2 col-form-label text-md-end">Nama Produk: </label>
+    
+                                <div class="col-md-6">
+                                    <input type="text" name="item_name" class="form-control" placeholder="Enter Name">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="price" class="form-control" placeholder="Enter Price">
+                            <div class="row mb-1">
+                                <label for="name" class="col-md-2 col-form-label text-md-end">Harga: </label>
+    
+                                <div class="col-md-6">
+                                    <input type="text" name="price" class="form-control" placeholder="Enter Price">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" name="stock" class="form-control" placeholder="Enter Stock">
+                            <div class="row mb-1">
+                                <label for="name" class="col-md-2 col-form-label text-md-end">Stock: </label>
+    
+                                <div class="col-md-6">
+                                    <input type="text" name="stock" class="form-control" placeholder="Enter Stock">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                            <div class="row mb-1">
+                                <label for="name" class="col-md-2 col-form-label text-md-end">Deskripsi Produk: </label>
+    
+                                <div class="col-md-6">
+                                    <textarea name="description" id="" cols="63" rows="5"></textarea>
+                                </div>
                             </div>
                             <div class="mb-3">
-                                <label for="image" class="form-label">Default file input example</label>
+                                <label for="image" class="form-label">Attach Product Image</label>
+                                <div class="col-md-6">
                                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
                                 @error('image')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
                               </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">

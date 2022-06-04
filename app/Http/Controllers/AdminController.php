@@ -102,9 +102,52 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    public function editList()
+    {
+        $items = Item::all();
+        return view('admin.update-list', compact('items'));
+    }
+
+    public function editItem($id)
+    {
+        $item = Item::where('id', $id)->first();
+        return view('admin.update-item', compact('item'));
+    }
+
     public function update(Request $request, $id)
     {
-    //
+        $request->validate([
+            'item_name' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        $item = Item::find($id);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $image->hashName();
+            $image->move(public_path('/uploads'), $image_name);
+
+            $image_path = "" . $image_name;
+        }
+        else {
+            $image_path = $item->image;
+        }
+
+
+        $item->item_name = $request->item_name;
+        $item->price = $request->price;
+        $item->stock = $request->stock;
+        $item->description = $request->description;
+        $item->image = $image_path;
+        $item->update();
+
+        Alert::success('Data saved', 'Success');
+        return redirect('update-list');
     }
 
     /**
@@ -117,9 +160,6 @@ class AdminController extends Controller
     {
         $items = Item::all();
         return view('admin.delete-items', compact('items'));
-
-
-
     }
 
     public function destroy($id)

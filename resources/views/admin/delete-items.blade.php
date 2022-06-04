@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="card">
             <div class="card-header">
-            <h3 class="mt-2"><i class="fa-solid fa-cart-trash"></i> Delete Item</h3>
+            <h3 class="mt-2"><i class="fa-solid fa-cart-trash"></i>Admin Menu > Delete Item</h3>
             </div>
             <div class="card-body">
             <table class="table table-striped">

@@ -36,7 +36,7 @@
                 @foreach($order_details as $order_detail)
                 <tr>
                     <td class="text-center">{{ $no++ }}.</td>
-                    <td><img src="{{ url('storage') }}/{{ $order_detail->item->image }}" width="100px" alt="Produk"></td>
+                    <td><img src="{{ url('uploads') }}/{{ $order_detail->item->image }}" width="100px" alt="Produk"></td>
                     <td>{{ $order_detail->item->item_name }}</td>
                     <td>{{ $order_detail->total }}</td>
                     <td>Rp. {{ number_format($order_detail->item->price) }}</td>
