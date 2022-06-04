@@ -64,9 +64,7 @@
                             <div class="form-group row">
                                 <label for="address" class="col-md-2 col-form-label text-md-end">{{ __('Address') }}</label>
                                 <div class="col-md-6">
-                                    <textarea name="address" id="address" cols="30" rows="3" class="form-control @error('address') is-invalid @enderror" required autocomplete="address">
-                                        {{ $user->address }}
-                                    </textarea>
+                                    <textarea name="address" id="address" cols="30" rows="3" class="form-control @error('address') is-invalid @enderror" required autocomplete="address">{{ $user->address }}</textarea>
                                 </div>
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
