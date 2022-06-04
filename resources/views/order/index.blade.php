@@ -19,7 +19,7 @@
                 <div class="card-body">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="{{ url('storage') }}/{{$item->image}}" class="rounded mx-auto d-block" width="100%" height="450px" alt="Produk">
+                        <img src="{{ url('uploads') }}/{{$item->image}}" class="rounded mx-auto d-block" width="100%" height="450px" alt="Produk">
                     </div>
                     <div class="col-md-7">
                     <table class="table table-borderless">

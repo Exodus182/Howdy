@@ -8,7 +8,7 @@
         @foreach($items as $item)
         <div class="col">
             <div class="card rounded h-100">
-                <img src="{{ url('storage') }}/{{ $item->image }}" class="card-img-top" alt="produk" height="300px">
+                <img src="{{ url('uploads') }}/{{ $item->image }}" class="card-img-top" alt="produk" height="300px">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->item_name }}</h5>
                     <table>

@@ -42,18 +42,23 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        Artisan::call('storage:link', []);
 
         $request->validate([
             'item_name' => 'required',
             'price' => 'required',
             'stock' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
 
-        $image = $request->file('image')->store('images');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $image->move(public_path('/images'), $image_name);
+
+            $image_path = "" . $image_name;
+        }
 
 
         $item = new Item;
@@ -61,7 +66,7 @@ class AdminController extends Controller
         $item->price = $request->price;
         $item->stock = $request->stock;
         $item->description = $request->description;
-        $item->image = $image;
+        $item->image = $image_path;
         $item->save();
 
         Alert::success('Data saved', 'Success');
